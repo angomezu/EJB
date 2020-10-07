@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Actualizar Departamento</title>
+    </h:head>
+    <h:body>
+       <h:form id="departamento">
+   <p:growl id="growl" sticky="true" />
+   <p:dataTable id="departamentoList" var="departamento" value="#{departamentobean.newdepartamento}">
+      <p:column headerText="Id">
+          <p:inputText value="#{departamentobean.newdepartamento.id}" converter="#{BigDecimal}" disabled="false"/>
+      </p:column>
+ 
+      <p:column headerText="Nombre">
+          <p:inputText id="nombre" value="#{departamentobean.newdepartamento.nombre}"/>
+      </p:column>
+ 
+      <p:column headerText="Cantidad de empleados">
+          <p:inputText id="cantidadEmpleados" value="#{departamentobean.newdepartamento.cantidadEmpleados}"/>
+       </p:column>
+ 
+       <p:column headerText="Cantidad de cajas">
+           <p:inputText id="cantidadCajas" value="#{departamentobean.newdepartamento.cantidadCajas}"/>
+       </p:column>
+ 
+       <p:column headerText="Estado">
+           <p:inputText id="estado" value="#{departamentobean.newdepartamento.estado}"/>
+       </p:column>
+                        
+        <p:column>
+           <p:commandButton update="departamentoList" value="Actualizar" icon="pi pi-save"
+                            action="#{departamentobean.Actualizar(departamento)}"
+                        styleClass="ui-priority-primary">
+           </p:commandButton>
+        </p:column>
+     </p:dataTable>
+     <br/>
+        </h:form>
+    </h:body>
+</html>
+
